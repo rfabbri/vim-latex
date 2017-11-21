@@ -100,7 +100,7 @@ if !exists('s:doneMappings')
 	call IMAP(g:Tex_Leader.'g', '\gamma', 'tex')
 	call IMAP(g:Tex_Leader.'h', '\eta', 'tex')
 	call IMAP(g:Tex_Leader.'i', '\iota', 'tex')
-	call IMAP(g:Tex_Leader.'k', '\kappa', 'tex')
+"	call IMAP(g:Tex_Leader.'k', '\kappa', 'tex')
 	call IMAP(g:Tex_Leader.'l', '\lambda', 'tex')
 	call IMAP(g:Tex_Leader.'m', '\mu', 'tex')
 	call IMAP(g:Tex_Leader.'n', '\nu', 'tex')
@@ -146,6 +146,9 @@ if !exists('s:doneMappings')
 			if nr2char(i) =~ '[[:print:]]'
 				if ( g:Tex_SmartKeyDot && nr2char(i) == '.' )
 							\ || ( g:Tex_SmartKeyQuote && nr2char(i) == '"' )
+					continue
+				endif
+				if nr2char(i) == 'j' || nr2char(i) == 'k'
 					continue
 				endif
 				call IMAP('``'.nr2char(i), '``'.nr2char(i), 'tex')
